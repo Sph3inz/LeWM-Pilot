@@ -1,0 +1,1 @@
+"""SkyMind AI server package."""

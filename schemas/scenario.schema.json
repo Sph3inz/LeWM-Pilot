@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://skymind.local/schemas/scenario.json",
+  "type": "object",
+  "required": ["scenario_id", "aircraft_id", "description", "events", "environment_initial"],
+  "properties": {
+    "scenario_id": { "type": "string" },
+    "aircraft_id": { "enum": ["c172", "t6"] },
+    "description": { "type": "string" },
+    "adaptation_policy": {
+      "type": "object",
+      "properties": {
+        "use_default_profiler": { "type": "boolean", "default": true }
+      }
+    },
+    "environment_initial": {
+      "type": "object",
+      "required": ["visibility_sm", "ceiling_ft"],
+      "properties": {
+        "crosswind_kt": { "type": "number", "default": 0 },
+        "gust_factor": { "type": "number", "minimum": 0, "maximum": 1, "default": 0 },
+        "turbulence_index": { "type": "number", "minimum": 0, "maximum": 1, "default": 0 },
+        "visibility_sm": { "type": "number", "minimum": 0 },
+        "ceiling_ft": { "type": "number", "minimum": 0 }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["time_offset_s", "type"],
+        "properties": {
+          "time_offset_s": { "type": "number", "minimum": 0 },
+          "type": {
+            "enum": [
+              "engine_failure",
+              "attitude_failure",
+              "comms_failure",
+              "hydraulic_leak",
+              "weather_imc",
+              "weather_ifr",
+              "weather_mvfr",
+              "weather_vfr",
+              "environment_change",
+              "turbulence_burst",
+              "wind_increase",
+              "phase_change"
+            ]
+          },
+          "params": { "type": "object" }
+        }
+      }
+    }
+  }
+}

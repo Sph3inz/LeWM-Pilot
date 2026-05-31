@@ -1,0 +1,30 @@
+{
+  "scenario_id": "demo_month6_engine_imc",
+  "aircraft_id": "t6",
+  "description": "Engine failure after takeoff, partial panel, IMC",
+  "environment_initial": {
+    "crosswind_kt": 5,
+    "gust_factor": 0.1,
+    "turbulence_index": 0.05,
+    "visibility_sm": 0.5,
+    "ceiling_ft": 200
+  },
+  "events": [
+    {
+      "time_offset_s": 0,
+      "type": "weather_imc",
+      "params": {}
+    },
+    {
+      "time_offset_s": 45,
+      "type": "engine_failure",
+      "params": { "side": "left", "altitude_trigger_ft": 500 }
+    },
+    {
+      "time_offset_s": 75,
+      "type": "attitude_failure",
+      "params": { "instrument": "ai" }
+    }
+  ],
+  "adaptation_policy": { "use_default_profiler": true }
+}

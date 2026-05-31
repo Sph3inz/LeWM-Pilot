@@ -1,0 +1,22 @@
+data/
+logs/
+checkpoints/
+.venv/
+.venv311/
+.env
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.lance/
+node_modules/
+apps/dashboard/.svelte-kit/
+apps/dashboard/build/
+
+# Local-only / not needed to run the demo
+invert-bench/
+docs/
+tests/

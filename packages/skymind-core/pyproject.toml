@@ -1,0 +1,25 @@
+[project]
+name = "skymind-core"
+version = "0.1.0"
+description = "SkyMind AI core — LeWM world model"
+requires-python = ">=3.11"
+dependencies = [
+    "skymind-data",
+    "skymind-sim",
+    "numpy>=1.26",
+    "pydantic>=2.6",
+    "pyyaml>=6",
+    "torch>=2.2",
+    "jsonschema>=4.21",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["skymind_core"]
+
+[tool.uv.sources]
+skymind-data = { workspace = true }
+skymind-sim = { workspace = true }

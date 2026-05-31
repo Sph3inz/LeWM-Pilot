@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://skymind.local/schemas/telemetry_frame.json",
+  "type": "object",
+  "required": ["type", "session_id", "sim_time_s", "pilot_score"],
+  "properties": {
+    "type": { "const": "telemetry" },
+    "session_id": { "type": "string" },
+    "timestamp_ns": { "type": "integer" },
+    "sim_time_s": { "type": "number" },
+    "aircraft_id": { "type": "string" },
+    "position": {
+      "type": "object",
+      "properties": {
+        "x_m": { "type": "number" },
+        "y_m": { "type": "number" }
+      }
+    },
+    "lat_deg": { "type": ["number", "null"] },
+    "lon_deg": { "type": ["number", "null"] },
+    "alt_ft": { "type": "number" },
+    "ias_kt": { "type": "number" },
+    "heading_deg": { "type": "number" },
+    "pitch_deg": { "type": "number" },
+    "roll_deg": { "type": "number" },
+    "vs_fpm": { "type": "number" },
+    "pilot_score": { "type": "number" },
+    "score_band": { "type": "string" },
+    "active_failures": { "type": "array", "items": { "type": "string" } },
+    "scenario_events_pending": { "type": "integer" },
+    "adaptation_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sim_time_s", "message", "source"],
+        "properties": {
+          "sim_time_s": { "type": "number" },
+          "message": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "timeline": { "type": "object" }
+  }
+}

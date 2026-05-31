@@ -1,0 +1,10 @@
+max_allowed_airspeed_error_kt: 15
+max_allowed_altitude_error_ft: 200
+max_allowed_reaction_time_s: 8
+update_interval_s: 5
+struggling_threshold: 0.4
+excellent_threshold: 0.7
+delay_on_struggling_s: 30
+advance_on_excellent_s: 15
+min_failure_spacing_s: 10
+gust_reduce_factor: 0.8

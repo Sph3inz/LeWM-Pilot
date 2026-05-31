@@ -1,0 +1,150 @@
+# T-6 Texan II maneuver catalog (Weeks 7–8)
+# Higher altitude and airspeed targets vs C172.
+
+catalogs:
+  full:
+    - takeoff_climb
+    - cruise_straight
+    - cruise_turn
+    - descent_approach
+    - landing
+    - engine_out_takeoff
+    - partial_panel
+    - imc_cruise
+    - crosswind_landing
+  basic:
+    - cruise_straight
+    - cruise_turn
+    - engine_out_takeoff
+    - partial_panel
+
+maneuvers:
+  takeoff_climb:
+    duration_s: 480
+    initial_alt_ft: 1000
+    initial_heading_deg: 270
+    phases:
+      - until_s: 120
+        target_alt_ft: 1000
+        target_heading_deg: 270
+        target_ias_kt: 80
+        target_vs_fpm: 0
+      - until_s: 480
+        target_alt_ft: 8000
+        target_heading_deg: 270
+        target_ias_kt: 120
+        target_vs_fpm: 800
+
+  cruise_straight:
+    duration_s: 900
+    initial_alt_ft: 8000
+    initial_heading_deg: 270
+    phases:
+      - until_s: 900
+        target_alt_ft: 8000
+        target_heading_deg: 270
+        target_ias_kt: 150
+        target_vs_fpm: 0
+
+  cruise_turn:
+    duration_s: 600
+    initial_alt_ft: 8000
+    initial_heading_deg: 270
+    phases:
+      - until_s: 600
+        target_alt_ft: 8000
+        target_heading_deg: 270
+        target_ias_kt: 150
+        target_vs_fpm: 0
+        heading_sweep_deg: 30
+        sweep_period_s: 120
+
+  descent_approach:
+    duration_s: 720
+    initial_alt_ft: 8000
+    initial_heading_deg: 270
+    phases:
+      - until_s: 720
+        target_alt_ft: 3000
+        target_heading_deg: 270
+        target_ias_kt: 130
+        target_vs_fpm: -800
+
+  landing:
+    duration_s: 300
+    initial_alt_ft: 3000
+    initial_heading_deg: 270
+    phases:
+      - until_s: 240
+        target_alt_ft: 1000
+        target_heading_deg: 270
+        target_ias_kt: 110
+        target_vs_fpm: -600
+      - until_s: 300
+        target_alt_ft: 1000
+        target_heading_deg: 270
+        target_ias_kt: 90
+        target_vs_fpm: -300
+
+  engine_out_takeoff:
+    duration_s: 360
+    initial_alt_ft: 1000
+    initial_heading_deg: 270
+    failures:
+      - failure_id: engine_failure
+        at_s: 30
+    phases:
+      - until_s: 30
+        target_alt_ft: 1000
+        target_heading_deg: 270
+        target_ias_kt: 100
+        target_vs_fpm: 300
+      - until_s: 360
+        target_alt_ft: 1000
+        target_heading_deg: 270
+        target_ias_kt: 90
+        target_vs_fpm: -300
+
+  partial_panel:
+    duration_s: 600
+    initial_alt_ft: 8000
+    initial_heading_deg: 270
+    failures:
+      - failure_id: attitude_failure
+        at_s: 60
+    phases:
+      - until_s: 600
+        target_alt_ft: 8000
+        target_heading_deg: 270
+        target_ias_kt: 150
+        target_vs_fpm: 0
+
+  imc_cruise:
+    duration_s: 900
+    initial_alt_ft: 8000
+    initial_heading_deg: 270
+    environment:
+      visibility_sm: 0.5
+      ceiling_ft: 200
+      turbulence_index: 0.2
+    phases:
+      - until_s: 900
+        target_alt_ft: 8000
+        target_heading_deg: 270
+        target_ias_kt: 150
+        target_vs_fpm: 0
+
+  crosswind_landing:
+    duration_s: 480
+    initial_alt_ft: 3000
+    initial_heading_deg: 270
+    environment:
+      crosswind_kt: 8
+      visibility_sm: 10
+      ceiling_ft: 10000
+    phases:
+      - until_s: 480
+        target_alt_ft: 1000
+        target_heading_deg: 270
+        target_ias_kt: 100
+        target_vs_fpm: -500

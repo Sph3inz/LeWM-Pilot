@@ -1,0 +1,15 @@
+cem_population: 128
+cem_elite_frac: 0.1
+cem_iterations: 3
+horizon_steps: 5
+max_crosswind_delta_kt: 5
+max_gust_delta: 0.15
+max_turbulence_delta: 0.2
+max_visibility_delta_sm: 2.0
+max_ceiling_delta_ft: 1500
+plan_interval_s: 10
+plan_on_score_out_of_band: true
+score_band_low: 0.35
+score_band_high: 0.75
+budget_ms: 8000
+difficulty_scale: 2.5

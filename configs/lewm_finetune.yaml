@@ -1,0 +1,17 @@
+checkpoint_hf: quentinll/lewm-reacher
+checkpoint_local: checkpoints/lewm_base.pt
+output_checkpoint: checkpoints/lewm_flight_v1.pt
+train_manifests:
+  - data/lance/collection_manifest.json
+  - data/lance/collection_manifest_t6.json
+lance_root: data/lance/sessions
+val_fraction: 0.15
+epochs: 12
+batch_size: 128
+lr: 3.0e-4
+device: cuda
+freeze_encoder_epochs: 1
+early_stop_patience: 3
+target_latent_mse: 0.1
+max_train_samples: 80000
+max_val_samples: 10000

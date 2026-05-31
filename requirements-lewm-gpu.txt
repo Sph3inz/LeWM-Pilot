@@ -1,0 +1,12 @@
+# LeWM GPU fine-tune (Python 3.11 + CUDA PyTorch)
+# Use this venv because PyTorch CUDA wheels are not available for Python 3.14.
+-e packages/skymind-data
+-e packages/skymind-core
+numpy>=1.26
+pydantic>=2.6
+pyyaml>=6
+pyarrow>=14
+huggingface_hub>=0.20
+safetensors>=0.4
+# Install CUDA torch separately:
+# pip install torch --index-url https://download.pytorch.org/whl/cu124

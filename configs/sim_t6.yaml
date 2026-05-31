@@ -1,0 +1,6 @@
+sim_hz: 10
+aircraft_id: t6
+jsbgym_env_id: null
+initial_alt_ft: 8000
+initial_heading_deg: 270
+lance_root: data/lance/sessions

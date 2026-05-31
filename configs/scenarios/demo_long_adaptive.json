@@ -1,0 +1,29 @@
+{
+  "scenario_id": "demo_long_adaptive_20min",
+  "aircraft_id": "t6",
+  "description": "20-minute adaptive syllabus: IMC departure, escalating weather, multi-failure partial panel, comms loss, recovery",
+  "environment_initial": {
+    "crosswind_kt": 8,
+    "gust_factor": 0.12,
+    "turbulence_index": 0.08,
+    "visibility_sm": 1.0,
+    "ceiling_ft": 400
+  },
+  "events": [
+    { "time_offset_s": 0, "type": "weather_imc", "params": { "phase": "departure" } },
+    { "time_offset_s": 90, "type": "environment_change", "params": { "crosswind_kt": 12, "gust_factor": 0.18 } },
+    { "time_offset_s": 180, "type": "phase_change", "params": { "phase": "climb", "turbulence_index": 0.12 } },
+    { "time_offset_s": 300, "type": "turbulence_burst", "params": { "turbulence_index": 0.35, "gust_factor": 0.28 } },
+    { "time_offset_s": 420, "type": "weather_mvfr", "params": { "visibility_sm": 4.0, "ceiling_ft": 1800 } },
+    { "time_offset_s": 540, "type": "engine_failure", "params": { "side": "left", "altitude_trigger_ft": 5000 } },
+    { "time_offset_s": 660, "type": "comms_failure", "params": { "duration_s": 120 } },
+    { "time_offset_s": 780, "type": "wind_increase", "params": { "crosswind_kt": 18, "gust_factor": 0.32 } },
+    { "time_offset_s": 900, "type": "attitude_failure", "params": { "instrument": "ai" } },
+    { "time_offset_s": 1020, "type": "weather_ifr", "params": { "visibility_sm": 0.75, "ceiling_ft": 300 } },
+    { "time_offset_s": 1080, "type": "environment_change", "params": { "turbulence_index": 0.42, "visibility_sm": 0.5 } },
+    { "time_offset_s": 1140, "type": "hydraulic_leak", "params": { "severity": "moderate" } },
+    { "time_offset_s": 1200, "type": "phase_change", "params": { "phase": "approach", "ceiling_ft": 600 } },
+    { "time_offset_s": 1320, "type": "weather_vfr", "params": { "visibility_sm": 8.0, "ceiling_ft": 8000 } }
+  ],
+  "adaptation_policy": { "use_default_profiler": true }
+}

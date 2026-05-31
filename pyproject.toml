@@ -1,0 +1,23 @@
+[project]
+name = "skymind"
+version = "0.1.0"
+description = "SkyMind — AI-driven adaptive flight training"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.uv.workspace]
+members = ["packages/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "sim: requires jsbsim/jsbgym (deselect with -m 'not sim')",
+    "gpu: requires CUDA and PyTorch",
+    "llm: requires OpenRouter API key",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

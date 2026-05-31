@@ -1,0 +1,11 @@
+-e packages/skymind-data
+-e packages/skymind-sim
+jsbsim>=1.1.13
+gymnasium>=1.0.0
+numpy>=1.26
+pydantic>=2.6
+pyyaml>=6
+pyarrow>=14
+pytest>=8
+# jsbgym (install separately if git pip fails):
+# pip install git+https://github.com/sryu1/jsbgym.git
